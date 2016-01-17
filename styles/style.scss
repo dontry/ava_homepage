@@ -1,0 +1,676 @@
+
+$light-white: #f3f3f3;
+$pure-white: #fff;
+$light-grey: #dadada;
+$dark-grey: #666;
+$dark-black: #333;
+$footer-black:  #2c3339;
+$netease-light-green: #21a557;
+$netease-standard-green: #39a030;
+$tip-font-size: 12px;
+$tip-line-height: 36px;
+$head-font-size: 28px;
+$head-line-height: 89px;
+
+.f-fl {
+  float: left;
+}
+
+.f-fr {
+  float: right;
+}
+
+.f-pr {
+	position: relative;
+}
+
+.f-pa {
+	position: absolute;
+}
+
+.f-cb {
+	zoom:1;
+}
+
+.f-thide {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.f-cb:after {
+	content: ".";
+	clear: both;
+	visibility: hidden;
+	display: block;
+	overflow: hidden;
+	height: 0;
+	font-size: 0;
+}
+
+
+.g-top {
+	background: $light-white;
+}
+
+.m-topbanner {
+	width: 1202px;
+	height: 36px;
+	margin: 0 auto;
+	background-color: $light-white;
+
+	.u-tips {
+		font: #{$tip-font-size}/#{$tip-line-height} "Micro Yahei";
+		color: $dark-black;
+	}
+
+	.u-look {
+		font: #{$tip-font-size}/#{$tip-line-height} "Micro Yahei";
+		color: $netease-light-green;
+	}
+
+	.m-close {
+		cursor: pointer;
+	}
+
+	.u-closeicon { 
+		width: 9px;
+		height: 9px;
+		margin-top: 14px;
+		margin-right: 6px;
+	}
+
+	.u-closetips {
+		font: #{$tip-font-size}/#{$tip-line-height} "Micro Yahei";
+		color: $dark-black;
+	}
+}
+
+.g-hd {
+	height: 89px;
+}
+
+.m-hd {
+	width: 1202px;
+	height: 89px;
+	margin: 0 auto;
+
+	.title {
+		height: 89px;	
+
+		.u-title-en {
+			font: bold #{$head-font-size}/#{$head-line-height} "Gill Sans MT";
+			color: $netease-standard-green;
+		}
+
+		span {
+			height: 20px;
+			width: 23px;
+			margin-top: 34px;
+			background-image: url("../../assets/images/ui-sprite.png");
+		  background-position: 0 -47px;
+		}
+		.u-title-cn {
+			font: bold #{$head-font-size}/#{$head-line-height} "Hiragino Sans GB";
+			color: $dark-black;
+		}
+	}
+
+	.userAttr {
+		margin-top: 34px;
+		.userAttr-follow {
+			width: 54px;
+			height: 21px;
+			margin: 0 14px 0 31px;
+			background-color: $netease-standard-green;
+			cursor: pointer;
+			text-align: center;
+			.userAttr-text {
+				font: 12px/21px "宋体";
+				color: $light-white;
+				strong { font-style: bolder}
+			}
+		}
+
+		.userAttr-fans {
+			font: 12px/21px "宋体";
+			color: $dark-grey;
+		}
+	}
+
+	.nav-course {
+		margin-top: 34px;
+
+		a {
+			margin-left: 54px;
+			font: 16px/20px "Hiragino Sans GB";
+			color: $dark-grey;
+		}
+
+		a:hover {
+			color: $netease-standard-green;
+		}
+
+		.search {
+			display: inline-block;
+			width: 18px;
+			height: 18px;
+			margin-left: 30px;
+			line-height: 18px;
+			background: url(../../assets/images/ui-sprite.png) 0 -19px no-repeat;
+		}
+
+		.search:active{
+			background: url(../../assets/images/ui-sprite.png) -28px -19px no-repeat;
+		}
+	}
+}
+
+
+.m-sld {
+	height: 460px;
+	width: 100%;
+	min-width: 1202px;
+	margin: 0 auto;
+	overflow: hidden;
+
+	.m-sld-wrapper {
+		height: 460px;
+		width: 100%;
+
+		.u-sld-list {
+			.banner {
+				display: none;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+			}
+
+			.bannerOn {
+				display: block;
+			}
+		}
+
+		.u-control {
+			margin-top: -30px;
+			height: 10px;
+			width: 100%;
+			text-align: center;
+			cursor: default;
+			.circle-wrap {
+				display: inline;
+				width: 102px;
+				bottom: 30px;
+
+				.circle {
+					display: inline-block;
+					height: 10px;
+					width: 10px;
+					border-radius: 50%;
+					margin-right: 11px;
+					background-color: $dark-grey;
+					cursor: pointer;
+				}
+
+				.circleOn {
+					background-color: $dark-black;
+				}
+			}
+		}
+	}
+}
+
+.m-course-intro {
+	height: 297px;
+	width: 100%;
+	text-align: center;
+
+	.section {
+		display: block; 
+		width: 1200px;
+		height: 237px;
+		margin: 0 auto;
+		margin-top: 60px;
+		text-align: left;
+
+
+		.intro-blk {
+			display: inline-block;
+			height: 237px;
+			width: 240px;
+			background: url(../../assets/images/logo_sprite.png) no-repeat ;
+			padding-left: 100px;
+
+			h2,p,a{
+				background-color: $pure-white;
+			}
+
+			h2 {
+				padding-bottom: 20px;
+				font: 22px/20px "Micro Yahei";
+				color: $dark-black;
+			}
+
+			p {
+				padding-bottom: 10px;
+				font: 14px/24px "Micro Yahei";
+				color: #dark-grey
+			}
+			a {
+				font: 14px/24px "Micro Yahei";
+				color: $netease-standard-green;
+			}
+		}
+
+		.intro-blk:nth-child(2) {
+			background-position: -100px 0;
+		}
+
+		.intro-blk:nth-child(3) {
+			background-position: -200px 0;
+		}
+
+		.intro-blk+.intro-blk {
+			margin-left: 80px;
+		}
+	}
+}
+
+.m-adimg {
+	width: 100%;
+	min-width: 1202px;
+	margin-left: -4px;
+
+	img {
+		height: 200px;
+		float: left;
+		width: 20%;
+		padding-left: 4px;
+		box-sizing: border-box;
+	}
+}
+
+.g-wrap {
+	margin-top: 30px;
+	background: $light-white;
+
+	.m-list {
+		width: 1206px;
+		margin: 0 auto;
+		background-color: $light-white;
+
+		.g-main {
+			width: 981px;
+
+			.m-tab {
+				width: 400px;
+				height: 50px;
+				margin-top: 81px;
+				text-align: center;
+				background-color: $pure-white;
+				box-shadow: 0 1px 0 1px $dark-grey; 
+				
+				.tab-select, .tab {
+					display: inline-block;
+					width: 200px;
+					height: 50px;
+					font: 20px/50px "Micro Yahei";
+				}
+
+				.tab-select {
+					color: $pure-white;
+					background-color: $netease-standard-green;
+				}
+
+				.tab {
+					color: $dark-grey;
+				}
+			}
+
+			.m-course {
+					width: 225px;
+					height: 228px;
+					float: left;
+					position: relative;
+					margin-top: 20px;
+					margin-right: 20px;
+					background-color: red;
+					box-shadow: 0 1px 0 1px $light-grey;
+
+					.course-dtl {
+						position: absolute;
+						display: none;
+						top: -10px;
+						left: -10px;
+						width: 479px;
+						background-color: $pure-white;
+						box-shadow: 0 0 .5px 2px $light-grey;
+						z-index: 999;
+						
+						.dtl-mn {
+							width: 457px;
+							height: 133px;
+							padding: 11px;
+
+							.dtl-picwrap {
+								width: 223px;
+								height: 124px;
+							}
+						}
+
+						.dtl-ct {
+							width: 215px;
+							margin-left: 19px;
+							overflow: hidden;
+
+							.dtl-title {
+								margin-bottom: 17px;
+								padding-top: 2px;
+								font: 18px/20px "Micro Yahei";
+								color: $dark-black;
+
+								a {
+									display: inline-block;
+									width: 215px;
+								}
+							}
+
+							.learner {
+								display: inline-block;
+								height: 12px;
+								margin-left: 4px;
+								padding-left: 15px;
+								font: 12px/12px "Micro Yahei";
+								color: $dark-grey;
+								background: url(../../assets/images/ui-sprite.png) -38px 0 no-repeat;
+							}
+
+							.dtl-org {
+								margin-left: 4px;
+								margin-top: 5px;
+								font: 12px/20px "Micro Yahei";
+								color: $dark-grey;
+							}
+
+							.dtl-category {
+								margin-left: 4px;
+								font: 12px/20px "Micro Yahei";
+								color: $dark-grey;
+							}
+						}
+
+						.dtl-ft {
+							width: 479px;
+							background-color: $light-white;
+
+							.m-desc {
+								width: 433px;
+								padding: 11px 23px;
+								font: 14px/24px "Micro Yahei";
+								color: $dark-grey;
+								overflow: hidden;
+							}
+						}
+
+						.picwrap {
+						width: 223px;
+						height: 124px;
+						padding: 1px;
+
+						img {
+							border: 0;
+						}
+
+						.title {
+							margin-top: 5px;
+							padding: 0 6px;
+							font: 12px/16px "Micro Yahei";
+							color: $dark-black;
+
+							a {
+								display: inline-block;
+								width: 213px;
+							}
+
+							.provider {
+								height: 32px;
+								padding: 0 6px;
+								font: 12px/32px "Micro Yahei";
+								color: $dark-grey;
+							}
+
+							.desc{
+								padding: 0 6px;
+
+								.learner {
+									display: inline-block;
+									height: 16px;
+									padding-left: 17px;
+									padding-right: 2px;
+									border:  1px solid $light-grey;
+									border-radius: 2px;
+									font: 8px/16px "Micro Yahei";
+									color: $dark-grey;
+									background: url(../../assets/images/ui-sprite.png) -35px 0 no-repeat;
+								}
+
+								.price {
+									padding-top: 10px;
+									font: 12px/12px "Micro Yahei";
+									color: $netease-standard-green;
+								}
+							}
+						}
+					}
+					}
+				}
+
+			.m-pager {
+				width:  302px;
+				height: 20px;
+				margin: 29px 0 120px;
+
+				.prev-page {
+					display: inline-block;
+					width: 30px;
+					height: 20px;
+					background: url(../../assets/images/ui-sprite.png) 0 -101px no-repeat;
+				}
+
+				.next-page {
+					display: inline-block;
+					width: 30px;
+					height: 20px;
+					background: url(../../assets/images/ui-sprite.png) 0 -131px no-repeat;
+				}
+
+				.pagei {
+					display: inline-block;
+					width: 20px;
+					height: 20px;
+					margin: 0 4px;
+					font: 14px/20px "Micro Yahei";
+					text-align: center;
+					vertical-align: middle;
+					color: $dark-grey;
+				}
+
+			}
+		}
+
+		.g-side {
+			width: 223px;
+			margin-left: 2px;
+
+			.m-org {
+				width: 223px;
+				height: 229px;
+				margin-top: 84px;
+
+				.org-title {
+					width: 223px;
+					height: 55px;
+					background-color: $pure-white;
+					box-shadow: 0 1px 0 1px $light-white;
+
+					p {
+						padding-left: 20px;
+						font: 16px/55px "Micro Yahei";
+						color: $dark-black;
+					}
+				}
+
+				.org-video {
+					width: 223px;
+					height: 173px;
+					margin-top: 1px;
+					background-color: $pure-white;
+					box-shadow: 0 1px 0 1px $light-white;
+
+					h5 {
+						padding: 20px 0 9px 22px;
+						font: 14px/22px "Micro Yahei";
+						color: $dark-grey;
+					}
+
+					.videolink {
+						width: 180px;
+						height: 110px;
+						margin: 0 auto;
+						background: url(../../assets/images/course_36.png) no-repeat;
+
+						.video-icon {
+							width: 46px;
+							height: 46px;
+							text-align: center;
+						}
+					}
+				}
+			}
+
+			.m-toprank {
+				width: 223px;
+				height: 578px;
+				margin-top: 21px;
+
+				.rank-title {
+					width: 223px;
+					height: 56px;
+					background-color: $pure-white;
+					box-shadow: 0 1px 0 1px $light-grey;
+
+					h3 {
+						padding-left: 20px;
+						font: 16px/56px "Micro Yahei";
+						color: $dark-black;
+					}
+				}
+
+				.rank-list {
+					width: 223px;
+					height: 521px;
+					margin-top: 1px;
+					background-color: $pure-white;
+					box-shadow: 0 1px 0 1px $light-grey;
+
+					.rank-item {
+						width: 183px;
+						height: 50px;
+						padding-top: 20px;
+						padding-left: 20px;
+
+						img {
+							float: left;
+							height: 50px;
+							width: 50px;
+						}
+
+						.item-detail {
+							width: 121px;
+							float:  right;
+							font: 14px/16.8px "Micro Yahei";
+							color: $dark-black;
+
+							.detail-title {
+								display: inline-block;
+								width: 121px;
+								padding-bottom: 5px;
+							}
+
+							.detail-hot {
+								display: inline-block;
+								height: 10px;
+								padding-left: 15px;
+								font: 8px/10px "Micro Yahei";
+								color: $dark-grey;
+								background: url(../../assets/images/ui-sprite.png) -38px -2px no-repeat;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.g-ft {
+	height: 262px;
+	min-width: 1202px;
+	background-color: $footer-black;
+
+	.m-ftwrapper {
+		width: 948px;
+		height: 262px;
+		margin: 0 auto;
+
+		.ft-left {
+			padding-top: 95px;
+
+			.title {
+				padding-bottom: 30px;
+
+				.u-title-en {
+					font: normal bold 28px/20px "Gill Sans MT";
+					color: $netease-standard-green;
+				}
+
+				span {
+						height: 20px;
+						width: 23px;
+						background-image: url("../../assets/images/ui-sprite.png");
+					  background-position: 0 -47px;
+				}
+
+				.u-title-cn {
+					font: normal bold 22px/20px "Hiragino Sans GB";
+					color: $netease-standard-green;
+				}
+			}
+
+			.cprt {
+				font: 12.5px/25px "Micro Yahei";
+				color: $pure-white;
+			}
+		}
+
+		.ft-right {
+			padding-top: 82px;
+
+			h6, a {
+				font: 12.5px/29px "Micro Yahei";
+				color: $pure-white;
+			}
+
+			.link {
+				margin-right: 98px;
+			}
+
+			.about {
+				margin-right: 73px;
+			}
+
+		}
+	}
+}

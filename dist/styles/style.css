@@ -1,0 +1,460 @@
+@charset "UTF-8";
+.f-fl {
+  float: left; }
+
+.f-fr {
+  float: right; }
+
+.f-pr {
+  position: relative; }
+
+.f-pa {
+  position: absolute; }
+
+.f-cb {
+  zoom: 1; }
+
+.f-thide {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap; }
+
+.f-cb:after {
+  content: ".";
+  clear: both;
+  visibility: hidden;
+  display: block;
+  overflow: hidden;
+  height: 0;
+  font-size: 0; }
+
+.g-top {
+  background: #f3f3f3; }
+
+.m-topbanner {
+  width: 1202px;
+  height: 36px;
+  margin: 0 auto;
+  background-color: #f3f3f3; }
+  .m-topbanner .u-tips {
+    font: 12px / 36px "Micro Yahei";
+    color: #333; }
+  .m-topbanner .u-look {
+    font: 12px / 36px "Micro Yahei";
+    color: #21a557; }
+  .m-topbanner .m-close {
+    cursor: pointer; }
+  .m-topbanner .u-closeicon {
+    width: 9px;
+    height: 9px;
+    margin-top: 14px;
+    margin-right: 6px; }
+  .m-topbanner .u-closetips {
+    font: 12px / 36px "Micro Yahei";
+    color: #333; }
+
+.g-hd {
+  height: 89px; }
+
+.m-hd {
+  width: 1202px;
+  height: 89px;
+  margin: 0 auto; }
+  .m-hd .title {
+    height: 89px; }
+    .m-hd .title .u-title-en {
+      font: bold 28px / 89px "Gill Sans MT";
+      color: #39a030; }
+    .m-hd .title span {
+      height: 20px;
+      width: 23px;
+      margin-top: 34px;
+      background-image: url("../../assets/images/ui-sprite.png");
+      background-position: 0 -47px; }
+    .m-hd .title .u-title-cn {
+      font: bold 28px / 89px "Hiragino Sans GB";
+      color: #333; }
+  .m-hd .userAttr {
+    margin-top: 34px; }
+    .m-hd .userAttr .userAttr-follow {
+      width: 54px;
+      height: 21px;
+      margin: 0 14px 0 31px;
+      background-color: #39a030;
+      cursor: pointer;
+      text-align: center; }
+      .m-hd .userAttr .userAttr-follow .userAttr-text {
+        font: 12px/21px "宋体";
+        color: #f3f3f3; }
+        .m-hd .userAttr .userAttr-follow .userAttr-text strong {
+          font-style: bolder; }
+    .m-hd .userAttr .userAttr-fans {
+      font: 12px/21px "宋体";
+      color: #666; }
+  .m-hd .nav-course {
+    margin-top: 34px; }
+    .m-hd .nav-course a {
+      margin-left: 54px;
+      font: 16px/20px "Hiragino Sans GB";
+      color: #666; }
+    .m-hd .nav-course a:hover {
+      color: #39a030; }
+    .m-hd .nav-course .search {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      margin-left: 30px;
+      line-height: 18px;
+      background: url(../../assets/images/ui-sprite.png) 0 -19px no-repeat; }
+    .m-hd .nav-course .search:active {
+      background: url(../../assets/images/ui-sprite.png) -28px -19px no-repeat; }
+
+.m-sld {
+  height: 460px;
+  width: 100%;
+  min-width: 1202px;
+  margin: 0 auto;
+  overflow: hidden; }
+  .m-sld .m-sld-wrapper {
+    height: 460px;
+    width: 100%; }
+    .m-sld .m-sld-wrapper .u-sld-list .banner {
+      display: none;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0; }
+    .m-sld .m-sld-wrapper .u-sld-list .bannerOn {
+      display: block; }
+    .m-sld .m-sld-wrapper .u-control {
+      margin-top: -30px;
+      height: 10px;
+      width: 100%;
+      text-align: center;
+      cursor: default; }
+      .m-sld .m-sld-wrapper .u-control .circle-wrap {
+        display: inline;
+        width: 102px;
+        bottom: 30px; }
+        .m-sld .m-sld-wrapper .u-control .circle-wrap .circle {
+          display: inline-block;
+          height: 10px;
+          width: 10px;
+          border-radius: 50%;
+          margin-right: 11px;
+          background-color: #666;
+          cursor: pointer; }
+        .m-sld .m-sld-wrapper .u-control .circle-wrap .circleOn {
+          background-color: #333; }
+
+.m-course-intro {
+  height: 297px;
+  width: 100%;
+  text-align: center; }
+  .m-course-intro .section {
+    display: block;
+    width: 1200px;
+    height: 237px;
+    margin: 0 auto;
+    margin-top: 60px;
+    text-align: left; }
+    .m-course-intro .section .intro-blk {
+      display: inline-block;
+      height: 237px;
+      width: 240px;
+      background: url(../../assets/images/logo_sprite.png) no-repeat;
+      padding-left: 100px; }
+      .m-course-intro .section .intro-blk h2, .m-course-intro .section .intro-blk p, .m-course-intro .section .intro-blk a {
+        background-color: #fff; }
+      .m-course-intro .section .intro-blk h2 {
+        padding-bottom: 20px;
+        font: 22px/20px "Micro Yahei";
+        color: #333; }
+      .m-course-intro .section .intro-blk p {
+        padding-bottom: 10px;
+        font: 14px/24px "Micro Yahei";
+        color: #dark-grey; }
+      .m-course-intro .section .intro-blk a {
+        font: 14px/24px "Micro Yahei";
+        color: #39a030; }
+    .m-course-intro .section .intro-blk:nth-child(2) {
+      background-position: -100px 0; }
+    .m-course-intro .section .intro-blk:nth-child(3) {
+      background-position: -200px 0; }
+    .m-course-intro .section .intro-blk + .intro-blk {
+      margin-left: 80px; }
+
+.m-adimg {
+  width: 100%;
+  min-width: 1202px;
+  margin-left: -4px; }
+  .m-adimg img {
+    height: 200px;
+    float: left;
+    width: 20%;
+    padding-left: 4px;
+    box-sizing: border-box; }
+
+.g-wrap {
+  margin-top: 30px;
+  background: #f3f3f3; }
+  .g-wrap .m-list {
+    width: 1206px;
+    margin: 0 auto;
+    background-color: #f3f3f3; }
+    .g-wrap .m-list .g-main {
+      width: 981px; }
+      .g-wrap .m-list .g-main .m-tab {
+        width: 400px;
+        height: 50px;
+        margin-top: 81px;
+        text-align: center;
+        background-color: #fff;
+        box-shadow: 0 1px 0 1px #666; }
+        .g-wrap .m-list .g-main .m-tab .tab-select, .g-wrap .m-list .g-main .m-tab .tab {
+          display: inline-block;
+          width: 200px;
+          height: 50px;
+          font: 20px/50px "Micro Yahei"; }
+        .g-wrap .m-list .g-main .m-tab .tab-select {
+          color: #fff;
+          background-color: #39a030; }
+        .g-wrap .m-list .g-main .m-tab .tab {
+          color: #666; }
+      .g-wrap .m-list .g-main .m-course {
+        width: 225px;
+        height: 228px;
+        float: left;
+        position: relative;
+        margin-top: 20px;
+        margin-right: 20px;
+        background-color: red;
+        box-shadow: 0 1px 0 1px #dadada; }
+        .g-wrap .m-list .g-main .m-course .course-dtl {
+          position: absolute;
+          display: none;
+          top: -10px;
+          left: -10px;
+          width: 479px;
+          background-color: #fff;
+          box-shadow: 0 0 0.5px 2px #dadada;
+          z-index: 999; }
+          .g-wrap .m-list .g-main .m-course .course-dtl .dtl-mn {
+            width: 457px;
+            height: 133px;
+            padding: 11px; }
+            .g-wrap .m-list .g-main .m-course .course-dtl .dtl-mn .dtl-picwrap {
+              width: 223px;
+              height: 124px; }
+          .g-wrap .m-list .g-main .m-course .course-dtl .dtl-ct {
+            width: 215px;
+            margin-left: 19px;
+            overflow: hidden; }
+            .g-wrap .m-list .g-main .m-course .course-dtl .dtl-ct .dtl-title {
+              margin-bottom: 17px;
+              padding-top: 2px;
+              font: 18px/20px "Micro Yahei";
+              color: #333; }
+              .g-wrap .m-list .g-main .m-course .course-dtl .dtl-ct .dtl-title a {
+                display: inline-block;
+                width: 215px; }
+            .g-wrap .m-list .g-main .m-course .course-dtl .dtl-ct .learner {
+              display: inline-block;
+              height: 12px;
+              margin-left: 4px;
+              padding-left: 15px;
+              font: 12px/12px "Micro Yahei";
+              color: #666;
+              background: url(../../assets/images/ui-sprite.png) -38px 0 no-repeat; }
+            .g-wrap .m-list .g-main .m-course .course-dtl .dtl-ct .dtl-org {
+              margin-left: 4px;
+              margin-top: 5px;
+              font: 12px/20px "Micro Yahei";
+              color: #666; }
+            .g-wrap .m-list .g-main .m-course .course-dtl .dtl-ct .dtl-category {
+              margin-left: 4px;
+              font: 12px/20px "Micro Yahei";
+              color: #666; }
+          .g-wrap .m-list .g-main .m-course .course-dtl .dtl-ft {
+            width: 479px;
+            background-color: #f3f3f3; }
+            .g-wrap .m-list .g-main .m-course .course-dtl .dtl-ft .m-desc {
+              width: 433px;
+              padding: 11px 23px;
+              font: 14px/24px "Micro Yahei";
+              color: #666;
+              overflow: hidden; }
+          .g-wrap .m-list .g-main .m-course .course-dtl .picwrap {
+            width: 223px;
+            height: 124px;
+            padding: 1px; }
+            .g-wrap .m-list .g-main .m-course .course-dtl .picwrap img {
+              border: 0; }
+            .g-wrap .m-list .g-main .m-course .course-dtl .picwrap .title {
+              margin-top: 5px;
+              padding: 0 6px;
+              font: 12px/16px "Micro Yahei";
+              color: #333; }
+              .g-wrap .m-list .g-main .m-course .course-dtl .picwrap .title a {
+                display: inline-block;
+                width: 213px; }
+              .g-wrap .m-list .g-main .m-course .course-dtl .picwrap .title .provider {
+                height: 32px;
+                padding: 0 6px;
+                font: 12px/32px "Micro Yahei";
+                color: #666; }
+              .g-wrap .m-list .g-main .m-course .course-dtl .picwrap .title .desc {
+                padding: 0 6px; }
+                .g-wrap .m-list .g-main .m-course .course-dtl .picwrap .title .desc .learner {
+                  display: inline-block;
+                  height: 16px;
+                  padding-left: 17px;
+                  padding-right: 2px;
+                  border: 1px solid #dadada;
+                  border-radius: 2px;
+                  font: 8px/16px "Micro Yahei";
+                  color: #666;
+                  background: url(../../assets/images/ui-sprite.png) -35px 0 no-repeat; }
+                .g-wrap .m-list .g-main .m-course .course-dtl .picwrap .title .desc .price {
+                  padding-top: 10px;
+                  font: 12px/12px "Micro Yahei";
+                  color: #39a030; }
+      .g-wrap .m-list .g-main .m-pager {
+        width: 302px;
+        height: 20px;
+        margin: 29px 0 120px; }
+        .g-wrap .m-list .g-main .m-pager .prev-page {
+          display: inline-block;
+          width: 30px;
+          height: 20px;
+          background: url(../../assets/images/ui-sprite.png) 0 -101px no-repeat; }
+        .g-wrap .m-list .g-main .m-pager .next-page {
+          display: inline-block;
+          width: 30px;
+          height: 20px;
+          background: url(../../assets/images/ui-sprite.png) 0 -131px no-repeat; }
+        .g-wrap .m-list .g-main .m-pager .pagei {
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          margin: 0 4px;
+          font: 14px/20px "Micro Yahei";
+          text-align: center;
+          vertical-align: middle;
+          color: #666; }
+    .g-wrap .m-list .g-side {
+      width: 223px;
+      margin-left: 2px; }
+      .g-wrap .m-list .g-side .m-org {
+        width: 223px;
+        height: 229px;
+        margin-top: 84px; }
+        .g-wrap .m-list .g-side .m-org .org-title {
+          width: 223px;
+          height: 55px;
+          background-color: #fff;
+          box-shadow: 0 1px 0 1px #f3f3f3; }
+          .g-wrap .m-list .g-side .m-org .org-title p {
+            padding-left: 20px;
+            font: 16px/55px "Micro Yahei";
+            color: #333; }
+        .g-wrap .m-list .g-side .m-org .org-video {
+          width: 223px;
+          height: 173px;
+          margin-top: 1px;
+          background-color: #fff;
+          box-shadow: 0 1px 0 1px #f3f3f3; }
+          .g-wrap .m-list .g-side .m-org .org-video h5 {
+            padding: 20px 0 9px 22px;
+            font: 14px/22px "Micro Yahei";
+            color: #666; }
+          .g-wrap .m-list .g-side .m-org .org-video .videolink {
+            width: 180px;
+            height: 110px;
+            margin: 0 auto;
+            background: url(../../assets/images/course_36.png) no-repeat; }
+            .g-wrap .m-list .g-side .m-org .org-video .videolink .video-icon {
+              width: 46px;
+              height: 46px;
+              text-align: center; }
+      .g-wrap .m-list .g-side .m-toprank {
+        width: 223px;
+        height: 578px;
+        margin-top: 21px; }
+        .g-wrap .m-list .g-side .m-toprank .rank-title {
+          width: 223px;
+          height: 56px;
+          background-color: #fff;
+          box-shadow: 0 1px 0 1px #dadada; }
+          .g-wrap .m-list .g-side .m-toprank .rank-title h3 {
+            padding-left: 20px;
+            font: 16px/56px "Micro Yahei";
+            color: #333; }
+        .g-wrap .m-list .g-side .m-toprank .rank-list {
+          width: 223px;
+          height: 521px;
+          margin-top: 1px;
+          background-color: #fff;
+          box-shadow: 0 1px 0 1px #dadada; }
+          .g-wrap .m-list .g-side .m-toprank .rank-list .rank-item {
+            width: 183px;
+            height: 50px;
+            padding-top: 20px;
+            padding-left: 20px; }
+            .g-wrap .m-list .g-side .m-toprank .rank-list .rank-item img {
+              float: left;
+              height: 50px;
+              width: 50px; }
+            .g-wrap .m-list .g-side .m-toprank .rank-list .rank-item .item-detail {
+              width: 121px;
+              float: right;
+              font: 14px/16.8px "Micro Yahei";
+              color: #333; }
+              .g-wrap .m-list .g-side .m-toprank .rank-list .rank-item .item-detail .detail-title {
+                display: inline-block;
+                width: 121px;
+                padding-bottom: 5px; }
+              .g-wrap .m-list .g-side .m-toprank .rank-list .rank-item .item-detail .detail-hot {
+                display: inline-block;
+                height: 10px;
+                padding-left: 15px;
+                font: 8px/10px "Micro Yahei";
+                color: #666;
+                background: url(../../assets/images/ui-sprite.png) -38px -2px no-repeat; }
+
+.g-ft {
+  height: 262px;
+  min-width: 1202px;
+  background-color: #2c3339; }
+  .g-ft .m-ftwrapper {
+    width: 948px;
+    height: 262px;
+    margin: 0 auto; }
+    .g-ft .m-ftwrapper .ft-left {
+      padding-top: 95px; }
+      .g-ft .m-ftwrapper .ft-left .title {
+        padding-bottom: 30px; }
+        .g-ft .m-ftwrapper .ft-left .title .u-title-en {
+          font: normal bold 28px/20px "Gill Sans MT";
+          color: #39a030; }
+        .g-ft .m-ftwrapper .ft-left .title span {
+          height: 20px;
+          width: 23px;
+          background-image: url("../../assets/images/ui-sprite.png");
+          background-position: 0 -47px; }
+        .g-ft .m-ftwrapper .ft-left .title .u-title-cn {
+          font: normal bold 22px/20px "Hiragino Sans GB";
+          color: #39a030; }
+      .g-ft .m-ftwrapper .ft-left .cprt {
+        font: 12.5px/25px "Micro Yahei";
+        color: #fff; }
+    .g-ft .m-ftwrapper .ft-right {
+      padding-top: 82px; }
+      .g-ft .m-ftwrapper .ft-right h6, .g-ft .m-ftwrapper .ft-right a {
+        font: 12.5px/29px "Micro Yahei";
+        color: #fff; }
+      .g-ft .m-ftwrapper .ft-right .link {
+        margin-right: 98px; }
+      .g-ft .m-ftwrapper .ft-right .about {
+        margin-right: 73px; }
