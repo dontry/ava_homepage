@@ -11,6 +11,9 @@
 .f-pa {
   position: absolute; }
 
+.f-pf {
+  position: fixed; }
+
 .f-cb {
   zoom: 1; }
 
@@ -28,6 +31,96 @@
   height: 0;
   font-size: 0; }
 
+.m-mask {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background: #333;
+  opacity: 0.8;
+  display: none; }
+
+.m-formwrap {
+  top: 50%;
+  left: 50%;
+  margin-top: -144px;
+  margin-left: -194px;
+  height: 300px;
+  width: 388px;
+  background-color: #fff;
+  z-index: 20;
+  display: none; }
+  .m-formwrap .m-close {
+    cursor: pointer;
+    width: 100%; }
+    .m-formwrap .m-close .u-closeIcon {
+      margin: 6px;
+      display: block;
+      width: 10px;
+      height: 10px;
+      background: url("../../assets/images/ui-sprite.png") -38px -47px no-repeat; }
+  .m-formwrap .m-form {
+    padding-top: 10px;
+    padding-left: 40px;
+    margin-bottom: 15px; }
+    .m-formwrap .m-form legend {
+      font: 18px/28px "Micro Yahei";
+      color: #333; }
+    .m-formwrap .m-form .u-usernamewrap {
+      margin-top: 20px;
+      margin-bottom: 15px; }
+    .m-formwrap .m-form .u-formtxt {
+      width: 293px;
+      height: 43px;
+      padding-left: 4px;
+      font: 16px/45px "Micro Yahei";
+      color: #333;
+      background: #f3f3f3;
+      border: 1px solid #dadada;
+      /*box-shadow: inset 2px 2px #f1f1f1;*/ }
+    .m-formwrap .m-form .warning-msg {
+      color: #ff3c10;
+      height: 28px;
+      font: 12px/28px "Micro Yahei"; }
+  .m-formwrap .u-login-btn {
+    width: 295px;
+    height: 48px;
+    margin-left: 40px;
+    text-align: center;
+    border: 0;
+    border-radius: 3px;
+    font: 16px/45px "Micro Yahei";
+    color: #fff;
+    background: linear-gradient(#21a557, #1a7512); }
+
+.m-player {
+  top: 5%;
+  left: 50%;
+  margin-left: -460px;
+  /*margin-top: */
+  width: 920px;
+  height: 648px;
+  padding-left: 30px;
+  font: 18px/28px "Micro Yahei";
+  color: #333;
+  z-index: 20;
+  background-color: #fff;
+  display: none; }
+  .m-player .m-close {
+    cursor: pointer;
+    width: 100%; }
+    .m-player .m-close .u-closeIcon {
+      margin: 6px;
+      display: block;
+      width: 10px;
+      height: 10px;
+      background: url("../../assets/images/ui-sprite.png") -38px -47px no-repeat; }
+  .m-player #video {
+    width: 889px;
+    height: 567px; }
+
 .g-top {
   background: #f3f3f3; }
 
@@ -44,14 +137,20 @@
     color: #21a557; }
   .m-topbanner .m-close {
     cursor: pointer; }
-  .m-topbanner .u-closeicon {
+  .m-topbanner .u-closeIcon {
+    display: inline-block;
     width: 9px;
     height: 9px;
     margin-top: 14px;
-    margin-right: 6px; }
+    margin-right: 2px;
+    background: url("../../assets/images/ui-sprite.png"); }
   .m-topbanner .u-closetips {
     font: 12px / 36px "Micro Yahei";
     color: #333; }
+  .m-topbanner .m-close:hover .u-closeicon {
+    background-position: -19px 0; }
+  .m-topbanner .m-close:hover .u-closetips {
+    color: #21a557; }
 
 .g-hd {
   height: 89px; }
@@ -75,22 +174,45 @@
       font: bold 28px / 89px "Hiragino Sans GB";
       color: #333; }
   .m-hd .userAttr {
-    margin-top: 34px; }
+    margin-top: 34px;
+    display: none; }
     .m-hd .userAttr .userAttr-follow {
       width: 54px;
       height: 21px;
       margin: 0 14px 0 31px;
       background-color: #39a030;
       cursor: pointer;
-      text-align: center; }
+      text-align: center;
+      border-radius: 2px; }
       .m-hd .userAttr .userAttr-follow .userAttr-text {
         font: 12px/21px "宋体";
         color: #f3f3f3; }
         .m-hd .userAttr .userAttr-follow .userAttr-text strong {
           font-style: bolder; }
-    .m-hd .userAttr .userAttr-fans {
-      font: 12px/21px "宋体";
-      color: #666; }
+  .m-hd .userAttr-after {
+    margin-top: 34px; }
+    .m-hd .userAttr-after .userAttr-follow {
+      padding: 2px 5px;
+      height: 21px;
+      margin: 0 14px 0 31px;
+      background-color: #f3f3f3;
+      cursor: pointer;
+      text-align: center;
+      border-radius: 2px; }
+      .m-hd .userAttr-after .userAttr-follow .userAttr-text {
+        padding-right: 4px;
+        font: 12px/21px "宋体";
+        color: #666;
+        border-right: 1px solid #dadada; }
+        .m-hd .userAttr-after .userAttr-follow .userAttr-text .check-mark {
+          font-weight: bold;
+          font: "Gujarati MT"; }
+      .m-hd .userAttr-after .userAttr-follow .userAttr-cancel {
+        font: 12px/21px "宋体";
+        color: #999; }
+  .m-hd .userAttr-fans {
+    font: 12px/21px "宋体";
+    color: #666; }
   .m-hd .nav-course {
     margin-top: 34px; }
     .m-hd .nav-course a {
@@ -113,26 +235,43 @@
   height: 460px;
   width: 100%;
   min-width: 1202px;
-  margin: 0 auto;
-  overflow: hidden; }
+  margin: 0 auto; }
   .m-sld .m-sld-wrapper {
     height: 460px;
-    width: 100%; }
-    .m-sld .m-sld-wrapper .u-sld-list .banner {
-      display: none;
+    width: 1330px;
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    /*relative要设在wrapper这里，否则list会溢出*/ }
+    .m-sld .m-sld-wrapper a {
+      text-decoration: none; }
+    .m-sld .m-sld-wrapper .u-sld-list {
       position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0; }
-    .m-sld .m-sld-wrapper .u-sld-list .bannerOn {
-      display: block; }
+      width: 6650px;
+      height: 460px;
+      left: -1330px;
+      z-index: 1; }
+      .m-sld .m-sld-wrapper .u-sld-list .banner {
+        float: left;
+        height: 460px;
+        width: 1330px; }
+      .m-sld .m-sld-wrapper .u-sld-list .banner0 {
+        background: url("../../assets/images/banner1.jpg"); }
+      .m-sld .m-sld-wrapper .u-sld-list .banner1 {
+        background: url("../../assets/images/banner2.jpg"); }
+      .m-sld .m-sld-wrapper .u-sld-list .banner2 {
+        background: url("../../assets/images/banner3.jpg"); }
+      .m-sld .m-sld-wrapper .u-sld-list .bannerOn {
+        display: block; }
     .m-sld .m-sld-wrapper .u-control {
-      margin-top: -30px;
       height: 10px;
       width: 100%;
       text-align: center;
-      cursor: default; }
+      cursor: default;
+      position: absolute;
+      bottom: 30px;
+      z-index: 2; }
       .m-sld .m-sld-wrapper .u-control .circle-wrap {
         display: inline;
         width: 102px;
@@ -143,10 +282,33 @@
           width: 10px;
           border-radius: 50%;
           margin-right: 11px;
-          background-color: #666;
+          background-color: #f3f3f3;
           cursor: pointer; }
-        .m-sld .m-sld-wrapper .u-control .circle-wrap .circleOn {
-          background-color: #333; }
+        .m-sld .m-sld-wrapper .u-control .circle-wrap #circleOn {
+          background-color: #39a030; }
+    .m-sld .m-sld-wrapper .u-arrow {
+      cursor: pointer;
+      display: none;
+      line-height: 39px;
+      text-align: center;
+      font-size: 36px;
+      font-weight: bold;
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      z-index: 2;
+      top: 180px;
+      background-color: RGBA(0, 0, 0, 0.3);
+      color: #fff; }
+    .m-sld .m-sld-wrapper .u-arrow:hover {
+      background-color: RGBA(0, 0, 0, 0.7);
+      text-decoration: none; }
+    .m-sld .m-sld-wrapper #prev-arrow {
+      left: 20px; }
+    .m-sld .m-sld-wrapper #next-arrow {
+      right: 20px; }
+  .m-sld .m-sld-wrapper:hover .u-arrow {
+    display: block; }
 
 .m-course-intro {
   height: 297px;
@@ -165,7 +327,9 @@
       width: 240px;
       background: url(../../assets/images/logo_sprite.png) no-repeat;
       padding-left: 100px; }
-      .m-course-intro .section .intro-blk h2, .m-course-intro .section .intro-blk p, .m-course-intro .section .intro-blk a {
+      .m-course-intro .section .intro-blk h2,
+      .m-course-intro .section .intro-blk p,
+      .m-course-intro .section .intro-blk a {
         background-color: #fff; }
       .m-course-intro .section .intro-blk h2 {
         padding-bottom: 20px;
@@ -188,7 +352,7 @@
 .m-adimg {
   width: 100%;
   min-width: 1202px;
-  margin-left: -4px; }
+  margin-left: -2px; }
   .m-adimg img {
     height: 200px;
     float: left;
@@ -212,11 +376,13 @@
         text-align: center;
         background-color: #fff;
         box-shadow: 0 1px 0 1px #666; }
-        .g-wrap .m-list .g-main .m-tab .tab-select, .g-wrap .m-list .g-main .m-tab .tab {
+        .g-wrap .m-list .g-main .m-tab .tab-select,
+        .g-wrap .m-list .g-main .m-tab .tab {
           display: inline-block;
           width: 200px;
           height: 50px;
-          font: 20px/50px "Micro Yahei"; }
+          font: 20px/50px "Micro Yahei";
+          text-decoration: none; }
         .g-wrap .m-list .g-main .m-tab .tab-select {
           color: #fff;
           background-color: #39a030; }
@@ -229,7 +395,7 @@
         position: relative;
         margin-top: 20px;
         margin-right: 20px;
-        background-color: red;
+        background-color: #fff;
         box-shadow: 0 1px 0 1px #dadada; }
         .g-wrap .m-list .g-main .m-course .course-dtl {
           position: absolute;
@@ -239,43 +405,48 @@
           width: 479px;
           background-color: #fff;
           box-shadow: 0 0 0.5px 2px #dadada;
-          z-index: 999; }
+          z-index: 999;
+          cursor: pointer; }
           .g-wrap .m-list .g-main .m-course .course-dtl .dtl-mn {
-            width: 457px;
+            width: 479px;
             height: 133px;
             padding: 11px; }
             .g-wrap .m-list .g-main .m-course .course-dtl .dtl-mn .dtl-picwrap {
               width: 223px;
               height: 124px; }
-          .g-wrap .m-list .g-main .m-course .course-dtl .dtl-ct {
-            width: 215px;
-            margin-left: 19px;
-            overflow: hidden; }
-            .g-wrap .m-list .g-main .m-course .course-dtl .dtl-ct .dtl-title {
-              margin-bottom: 17px;
-              padding-top: 2px;
-              font: 18px/20px "Micro Yahei";
-              color: #333; }
-              .g-wrap .m-list .g-main .m-course .course-dtl .dtl-ct .dtl-title a {
+              .g-wrap .m-list .g-main .m-course .course-dtl .dtl-mn .dtl-picwrap img {
+                width: 223px;
+                height: 124px; }
+            .g-wrap .m-list .g-main .m-course .course-dtl .dtl-mn .dtl-ct {
+              width: 215px;
+              margin-left: 19px;
+              overflow: hidden; }
+              .g-wrap .m-list .g-main .m-course .course-dtl .dtl-mn .dtl-ct .dtl-title {
+                margin-bottom: 17px;
+                padding-top: 2px;
+                font: 18px/20px "Micro Yahei";
+                color: #333; }
+                .g-wrap .m-list .g-main .m-course .course-dtl .dtl-mn .dtl-ct .dtl-title a {
+                  display: inline-block;
+                  text-decoration: none;
+                  width: 215px; }
+              .g-wrap .m-list .g-main .m-course .course-dtl .dtl-mn .dtl-ct .learner {
                 display: inline-block;
-                width: 215px; }
-            .g-wrap .m-list .g-main .m-course .course-dtl .dtl-ct .learner {
-              display: inline-block;
-              height: 12px;
-              margin-left: 4px;
-              padding-left: 15px;
-              font: 12px/12px "Micro Yahei";
-              color: #666;
-              background: url(../../assets/images/ui-sprite.png) -38px 0 no-repeat; }
-            .g-wrap .m-list .g-main .m-course .course-dtl .dtl-ct .dtl-org {
-              margin-left: 4px;
-              margin-top: 5px;
-              font: 12px/20px "Micro Yahei";
-              color: #666; }
-            .g-wrap .m-list .g-main .m-course .course-dtl .dtl-ct .dtl-category {
-              margin-left: 4px;
-              font: 12px/20px "Micro Yahei";
-              color: #666; }
+                height: 12px;
+                margin-left: 4px;
+                padding-left: 15px;
+                font: 12px/12px "Micro Yahei";
+                color: #666;
+                background: url(../../assets/images/ui-sprite.png) -38px 0 no-repeat; }
+              .g-wrap .m-list .g-main .m-course .course-dtl .dtl-mn .dtl-ct .dtl-org {
+                margin-left: 4px;
+                margin-top: 5px;
+                font: 12px/20px "Micro Yahei";
+                color: #666; }
+              .g-wrap .m-list .g-main .m-course .course-dtl .dtl-mn .dtl-ct .dtl-category {
+                margin-left: 4px;
+                font: 12px/20px "Micro Yahei";
+                color: #666; }
           .g-wrap .m-list .g-main .m-course .course-dtl .dtl-ft {
             width: 479px;
             background-color: #f3f3f3; }
@@ -285,54 +456,61 @@
               font: 14px/24px "Micro Yahei";
               color: #666;
               overflow: hidden; }
-          .g-wrap .m-list .g-main .m-course .course-dtl .picwrap {
-            width: 223px;
+        .g-wrap .m-list .g-main .m-course .picwrap {
+          width: 100%;
+          height: 124px;
+          padding: 1px; }
+          .g-wrap .m-list .g-main .m-course .picwrap img {
+            width: 100%;
             height: 124px;
-            padding: 1px; }
-            .g-wrap .m-list .g-main .m-course .course-dtl .picwrap img {
-              border: 0; }
-            .g-wrap .m-list .g-main .m-course .course-dtl .picwrap .title {
-              margin-top: 5px;
-              padding: 0 6px;
-              font: 12px/16px "Micro Yahei";
-              color: #333; }
-              .g-wrap .m-list .g-main .m-course .course-dtl .picwrap .title a {
-                display: inline-block;
-                width: 213px; }
-              .g-wrap .m-list .g-main .m-course .course-dtl .picwrap .title .provider {
-                height: 32px;
-                padding: 0 6px;
-                font: 12px/32px "Micro Yahei";
-                color: #666; }
-              .g-wrap .m-list .g-main .m-course .course-dtl .picwrap .title .desc {
-                padding: 0 6px; }
-                .g-wrap .m-list .g-main .m-course .course-dtl .picwrap .title .desc .learner {
-                  display: inline-block;
-                  height: 16px;
-                  padding-left: 17px;
-                  padding-right: 2px;
-                  border: 1px solid #dadada;
-                  border-radius: 2px;
-                  font: 8px/16px "Micro Yahei";
-                  color: #666;
-                  background: url(../../assets/images/ui-sprite.png) -35px 0 no-repeat; }
-                .g-wrap .m-list .g-main .m-course .course-dtl .picwrap .title .desc .price {
-                  padding-top: 10px;
-                  font: 12px/12px "Micro Yahei";
-                  color: #39a030; }
+            border: 0; }
+        .g-wrap .m-list .g-main .m-course .title {
+          margin-top: 5px;
+          padding: 0 6px;
+          font: 12px/16px "Micro Yahei";
+          color: #333; }
+          .g-wrap .m-list .g-main .m-course .title a {
+            display: inline-block;
+            width: 213px; }
+          .g-wrap .m-list .g-main .m-course .title .provider {
+            height: 22px;
+            font: 12px/22px "Micro Yahei";
+            color: #666; }
+        .g-wrap .m-list .g-main .m-course .desc {
+          padding: 0 6px; }
+          .g-wrap .m-list .g-main .m-course .desc .learner {
+            display: inline-block;
+            height: 16px;
+            padding-left: 17px;
+            padding-right: 2px;
+            border: 1px solid #dadada;
+            border-radius: 2px;
+            font: 8px/16px "Micro Yahei";
+            color: #666;
+            background: url(../../assets/images/ui-sprite.png) -35px 0 no-repeat; }
+          .g-wrap .m-list .g-main .m-course .desc .price {
+            padding-top: 10px;
+            font: 12px/12px "Micro Yahei";
+            color: #39a030; }
+      .g-wrap .m-list .g-main .m-course:hover .course-dtl {
+        display: block; }
       .g-wrap .m-list .g-main .m-pager {
         width: 302px;
         height: 20px;
         margin: 29px 0 120px; }
+        .g-wrap .m-list .g-main .m-pager a {
+          text-decoration: none; }
         .g-wrap .m-list .g-main .m-pager .prev-page {
           display: inline-block;
           width: 30px;
           height: 20px;
+          cursor: pointer;
           background: url(../../assets/images/ui-sprite.png) 0 -101px no-repeat; }
         .g-wrap .m-list .g-main .m-pager .next-page {
           display: inline-block;
           width: 30px;
           height: 20px;
+          cursor: pointer;
           background: url(../../assets/images/ui-sprite.png) 0 -131px no-repeat; }
         .g-wrap .m-list .g-main .m-pager .pagei {
           display: inline-block;
@@ -343,6 +521,20 @@
           text-align: center;
           vertical-align: middle;
           color: #666; }
+        .g-wrap .m-list .g-main .m-pager .pagei:hover {
+          background-color: #9dd8b1;
+          color: #fff; }
+        .g-wrap .m-list .g-main .m-pager .pagei-selected {
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          margin: 0 4px;
+          font: 14px/20px "Micro Yahei";
+          text-align: center;
+          vertical-align: middle;
+          color: #21a557; }
+        .g-wrap .m-list .g-main .m-pager .page {
+          cursor: pointer; }
     .g-wrap .m-list .g-side {
       width: 223px;
       margin-left: 2px; }
@@ -355,7 +547,7 @@
           height: 55px;
           background-color: #fff;
           box-shadow: 0 1px 0 1px #f3f3f3; }
-          .g-wrap .m-list .g-side .m-org .org-title p {
+          .g-wrap .m-list .g-side .m-org .org-title h3 {
             padding-left: 20px;
             font: 16px/55px "Micro Yahei";
             color: #333; }
@@ -373,11 +565,16 @@
             width: 180px;
             height: 110px;
             margin: 0 auto;
-            background: url(../../assets/images/course_36.png) no-repeat; }
+            background: url(../../assets/images/course_36.png) no-repeat;
+            cursor: pointer; }
             .g-wrap .m-list .g-side .m-org .org-video .videolink .video-icon {
               width: 46px;
               height: 46px;
-              text-align: center; }
+              top: 32px;
+              left: 64px;
+              display: none; }
+          .g-wrap .m-list .g-side .m-org .org-video .videolink:hover .video-icon {
+            display: block; }
       .g-wrap .m-list .g-side .m-toprank {
         width: 223px;
         height: 578px;
@@ -451,7 +648,8 @@
         color: #fff; }
     .g-ft .m-ftwrapper .ft-right {
       padding-top: 82px; }
-      .g-ft .m-ftwrapper .ft-right h6, .g-ft .m-ftwrapper .ft-right a {
+      .g-ft .m-ftwrapper .ft-right h6,
+      .g-ft .m-ftwrapper .ft-right a {
         font: 12.5px/29px "Micro Yahei";
         color: #fff; }
       .g-ft .m-ftwrapper .ft-right .link {

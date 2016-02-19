@@ -1,485 +1,817 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>网易教育产品部</title>
-	<link rel="stylesheet" href="dist/reset.css">
-	<link rel="stylesheet" href="dist/styles/style.css">
+    <meta charset="UTF-8">
+    <title>网易教育产品部</title>
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/styles/style.css">
 </head>
 <!-- g for global; m for module; u for unit component-->
+
 <body>
-	<!-- 小公告栏 -->
-	<div class="g-top">
-		<div class="m-topbanner">
-			<p class="u-tips f-fl">网易云课堂微专业，帮助你掌握专业技能，令你求职加薪多一份独特优势！</p>
-			<a class="u-look f-fl" href="http://study.163.com/smartSpec/intro.htm#/smartSpecIntro" target="_blank">&nbsp; 立即查看 >></a>
-			<div class="m-close f-fr" onclick="closeclick()">
-				<p class="u-closetips f-fl">X &nbsp; 不再提醒</p>
-			</div>
-		</div>
-	</div>
-	<header class="g-hd">
-		<!--   导航	 -->
-		<nav class="m-hd">
-			<div class="title f-fl">
-				<h1 class="u-title-en f-fl">EDU</h1><span class="f-fl"></span><h1 class="u-title-cn f-fl">网易教育产品部</h1>
-			</div>
-			<div class="userAttr f-fl">
-				<div class="userAttr-follow f-fl"><span class="userAttr-text"><strong>+</strong> 关注</span></div>
-				<span class="userAttr-fans f-fl">粉丝数 45</span>
-			</div>
-			<div class="nav-course f-fr">
-				<a href="http://open.163.com" target="_blank">网易公开课</a>
-				<a href="http://study.163.com" target="_blank">云课堂</a>
-				<a href="http://www.icourse163.org" target="_blank">中国大学MOOC</a>
-				<a href class="search"></a>
-			</div>
-		</nav>
-	</header>
-	<div class="g-bd">
-		<!-- 轮播 -->
-		<div class="m-sld f-cb f-pr">
-			<div class="m-sld-wrapper">
-				<ul class="u-sld-list">
-					<li class="banner banner0" data-index="0"><a href="http://open.163.com" target="_blank">网易公开课</a></li>
-					<li class="banner banner1" data-index="1"><a href="http://study.163.com" target="_blank">云课堂</a></li>
-					<li class="banner banner2" data-index="2"><a href="http://www.icourse163.org" target="_blank">中国大学MOOC</a></li>
-				</ul>
-				<div class="u-control">
-					<div class="circle-wrap f-pa">
-						<span class="circle" data-index="0"></span>
-						<span class="circle" data-index="1"></span>
-						<span class="circle circleOn" data-index="2"></span>
-					</div>
+    <div class="m-mask"></div>
+    <!-- 登录框 -->
+    <div class="m-formwrap f-pf">
+        <div class="m-close f-cb" onclick="closeLogin()"><span class="u-closeIcon f-fr"></span></div>
+        <form class="m-form" name="loginForm" method="get" autocomplete="off">
+            <legend>登录网易云课堂</legend>
+            <fieldset>
+                <div class="u-usernamewrap">
+                    <input type="text" id="username" class="u-formtxt" name="username" placeholder="账号" autofocus onfocus="hideWarning()">
+                </div>
+                <div class="u-pwdwrap">
+                    <input type="password" id="password" class="u-formtxt" name="password" placeholder="密码" onfocus="hideWarning()">
+                </div>
+            </fieldset>
+            <div class="warning-msg"></div>
+        </form>
+        <button type="submit" class="u-login-btn" name="loginBtn" onclick="submit()">登录</button>
+    </div>
+    <!-- 视频播放 -->
+    <div class="m-player f-pf">
+        <div class="m-close f-cb" onclick="closePlayer()"><span class="u-closeIcon f-fr"></span></div>
+        <h1>请观看下面的视频</h1>
+        <div class="video">
+            <video id="video" controls>
+                <source src="http://mov.bn.netease.com/open-movie/nos/mp4/2014/12/30/SADQ86F5S_shd.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <!-- 小公告栏 -->
+    <div class="g-top">
+        <div class="m-topbanner">
+            <p class="u-tips f-fl">网易云课堂微专业，帮助你掌握专业技能，令你求职加薪多一份独特优势！</p>
+            <a class="u-look f-fl" href="http://study.163.com/smartSpec/intro.htm#/smartSpecIntro" target="_blank">&nbsp; 立即查看 >></a>
+            <div class="m-close f-fr" onclick="closeTop()">
+                <p class="u-closetips f-fl"><span class="u-closeIcon"></span> &nbsp; 不再提醒</p>
+            </div>
+        </div>
+    </div>
+    <header class="g-hd">
+        <!--   导航	 -->
+        <nav class="m-hd">
+            <div class="title f-fl">
+                <h1 class="u-title-en f-fl">EDU</h1><span class="f-fl"></span>
+                <h1 class="u-title-cn f-fl">网易教育产品部</h1>
+            </div>
+            <div class="userAttr f-fl">
+                <div class="userAttr-follow f-fl" onclick="login();"><span class="userAttr-text"><strong>+</strong> 关注</span></div>
+                <span class="userAttr-fans f-fl">粉丝数 45</span>
+            </div>
+            <div class="userAttr-after f-fl">
+                <div class="userAttr-follow f-fl">
+                    <span class="userAttr-text"><span class="check-mark">✓</span> &nbsp; 已关注</span>
+                    <span class="userAttr-cancel" onclick="attrCancel();">取消</a>
 				</div>
-			</div>
-		</div>
-		<!-- 三个产品介绍 -->
-		<div class="m-course-intro f-pr-intro">
-			<ul class="section f-cb f-pr">
-				<li class="intro-blk blk0">
-					<h2>网易公开课</h2>
-					<p>推出国内外名校公开课，涉及广泛的学科，名校老师认真讲解深度剖析，网易视频公开课频道搭建起强有力的网络视频教学平台。</p>
-					<a href="http://open.163.com" target="_blank">了解更多 >></a>
-				</li>
-				<li class="intro-blk f-cb f-pr">
-					<h2>云课堂</h2>
-					<p>网易旗下大型在线学习平台，该平台面向学习者提供海量免费、优质课程,创新的个性化学习体验，自由开放的交流互动环境。</p>
-					<a href="http://study.163.com" target="_blank">了解更多 >></a>
-				</li>
-				<li class="intro-blk f-cb f-pr">
-					<h2>中国大学MOOC</h2>
-					<p>是爱课程网携手云课堂打造的在线学习平台，每一个有提升愿望的人,都可以在这里学习中国最好的大学课程，学完还能获得认证证书。</p>
-					<a href="http://www.icourse163.org" target="_blank">了解更多 >></a>
-				</li>
-			</ul>
-		</div>
-		<!-- 工作环境 -->
-		<div class="m-adimg f-cb">
-			<img src="" alt="">
-			<img src="" alt="">
-			<img src="" alt="">
-			<img src="" alt="">
-			<img src="" alt="">
-		</div>
-		<!-- 课程 -->
-		<div class="g-wrap f-cb">
-			<!-- 课程主展示区 -->
-			<div class="m-list f-cb">
-				<div class="g-main m-course f-fl f-prlist f-fl">
-					<!-- 课程类别选择按钮 -->
-					<div class="m-tab f-cb">
-						<a href="" class="tab-select f-fl">产品设计</a>
-						<a href="" class="tab f-fl">编程语言</a>
-					</div>
-					<!-- 课程 -->
-					<div class="m-course f-fl f-pr">
-						<div class="course-dtl f-pa">
-							<div class="dtl-mn f-cb">
-								<div class="dtl-picwrap f-fl"><img src="" alt=""></div>
-							</div>
-							<div class="dtl-ct f-fl">
-								<div class="dtl-title"><a class="f-thide" title></a></div>
-								<div class="learner"></div>
-								<div class="dtl-org"><span></span><a href=""></a></div>
-								<div class="dtl-category"><span></span><a href=""></a></div>
-							</div>
-							<div class="dtl-ft">
-								<p class="m-desc"></p>
-							</div>
-							<div class="picwrap">
-								<img src="" alt="">
-								<div class="title">
-									<a href="" target="_blank"></a>
-									<a class="provider" href=""></a> 
-									<div class="desc"><span class="learner"></span><span class="price"></span></div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="m-course f-fl f-pr">
-						<div class="course-dtl f-pa">
-							<div class="dtl-mn f-cb">
-								<div class="dtl-picwrap f-fl"><img src="" alt=""></div>
-							</div>
-							<div class="dtl-ct f-fl">
-								<div class="dtl-title"><a class="f-thide" title></a></div>
-								<div class="learner"></div>
-								<div class="dtl-org"><span></span><a href=""></a></div>
-								<div class="dtl-category"><span></span><a href=""></a></div>
-							</div>
-							<div class="dtl-ft">
-								<p class="m-desc"></p>
-							</div>
-							<div class="picwrap">
-								<img src="" alt="">
-								<div class="title">
-									<a class="f-thide" title></a>
-									<a class="provider" href=""></a> 
-									<div class="desc"><span class="learner"></span><span class="price"></span></div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="m-course f-fl f-pr">
-						<div class="course-dtl f-pa">
-							<div class="dtl-mn f-cb">
-								<div class="dtl-picwrap f-fl"><img src="" alt=""></div>
-							</div>
-							<div class="dtl-ct f-fl">
-								<div class="dtl-title"><a class="f-thide" title></a></div>
-								<div class="learner"></div>
-								<div class="dtl-org"><span></span><a href=""></a></div>
-								<div class="dtl-category"><span></span><a href=""></a></div>
-							</div>
-							<div class="dtl-ft">
-								<p class="m-desc"></p>
-							</div>
-							<div class="picwrap">
-								<img src="" alt="">
-								<div class="title">
-									<a class="f-thide" title></a>
-									<a class="provider" href=""></a> 
-									<div class="desc"><span class="learner"></span><span class="price"></span></div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="m-course f-fl f-pr">
-						<div class="course-dtl f-pa">
-							<div class="dtl-mn f-cb">
-								<div class="dtl-picwrap f-fl"><img src="" alt=""></div>
-							</div>
-							<div class="dtl-ct f-fl">
-								<div class="dtl-title"><a class="f-thide" title></a></div>
-								<div class="learner"></div>
-								<div class="dtl-org"><span></span><a href=""></a></div>
-								<div class="dtl-category"><span></span><a href=""></a></div>
-							</div>
-							<div class="dtl-ft">
-								<p class="m-desc"></p>
-							</div>
-							<div class="picwrap">
-								<img src="" alt="">
-								<div class="title">
-									<a class="f-thide" title></a>
-									<a class="provider" href=""></a> 
-									<div class="desc"><span class="learner"></span><span class="price"></span></div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="m-course f-fl f-pr">
-						<div class="course-dtl f-pa">
-							<div class="dtl-mn f-cb">
-								<div class="dtl-picwrap f-fl"><img src="" alt=""></div>
-							</div>
-							<div class="dtl-ct f-fl">
-								<div class="dtl-title"><a class="f-thide" title></a></div>
-								<div class="learner"></div>
-								<div class="dtl-org"><span></span><a href=""></a></div>
-								<div class="dtl-category"><span></span><a href=""></a></div>
-							</div>
-							<div class="dtl-ft">
-								<p class="m-desc"></p>
-							</div>
-							<div class="picwrap">
-								<img src="" alt="">
-								<div class="title">
-									<a class="f-thide" title></a>
-									<a class="provider" href=""></a> 
-									<div class="desc"><span class="learner"></span><span class="price"></span></div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="m-course f-fl f-pr">
-						<div class="course-dtl f-pa">
-							<div class="dtl-mn f-cb">
-								<div class="dtl-picwrap f-fl"><img src="" alt=""></div>
-							</div>
-							<div class="dtl-ct f-fl">
-								<div class="dtl-title"><a class="f-thide" title></a></div>
-								<div class="learner"></div>
-								<div class="dtl-org"><span></span><a href=""></a></div>
-								<div class="dtl-category"><span></span><a href=""></a></div>
-							</div>
-							<div class="dtl-ft">
-								<p class="m-desc"></p>
-							</div>
-							<div class="picwrap">
-								<img src="" alt="">
-								<div class="title">
-									<a class="f-thide" title></a>
-									<a class="provider" href=""></a> 
-									<div class="desc"><span class="learner"></span><span class="price"></span></div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="m-course f-fl f-pr">
-						<div class="course-dtl f-pa">
-							<div class="dtl-mn f-cb">
-								<div class="dtl-picwrap f-fl"><img src="" alt=""></div>
-							</div>
-							<div class="dtl-ct f-fl">
-								<div class="dtl-title"><a class="f-thide" title></a></div>
-								<div class="learner"></div>
-								<div class="dtl-org"><span></span><a href=""></a></div>
-								<div class="dtl-category"><span></span><a href=""></a></div>
-							</div>
-							<div class="dtl-ft">
-								<p class="m-desc"></p>
-							</div>
-							<div class="picwrap">
-								<img src="" alt="">
-								<div class="title">
-									<a class="f-thide" title></a>
-									<a class="provider" href=""></a> 
-									<div class="desc"><span class="learner"></span><span class="price"></span></div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="m-course f-fl f-pr">
-						<div class="course-dtl f-pa">
-							<div class="dtl-mn f-cb">
-								<div class="dtl-picwrap f-fl"><img src="" alt=""></div>
-							</div>
-							<div class="dtl-ct f-fl">
-								<div class="dtl-title"><a class="f-thide" title></a></div>
-								<div class="learner"></div>
-								<div class="dtl-org"><span></span><a href=""></a></div>
-								<div class="dtl-category"><span></span><a href=""></a></div>
-							</div>
-							<div class="dtl-ft">
-								<p class="m-desc"></p>
-							</div>
-							<div class="picwrap">
-								<img src="" alt="">
-								<div class="title">
-									<a class="f-thide" title></a>
-									<a class="provider" href=""></a> 
-									<div class="desc"><span class="learner"></span><span class="price"></span></div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="m-course f-fl f-pr">
-						<div class="course-dtl f-pa">
-							<div class="dtl-mn f-cb">
-								<div class="dtl-picwrap f-fl"><img src="" alt=""></div>
-							</div>
-							<div class="dtl-ct f-fl">
-								<div class="dtl-title"><a class="f-thide" title></a></div>
-								<div class="learner"></div>
-								<div class="dtl-org"><span></span><a href=""></a></div>
-								<div class="dtl-category"><span></span><a href=""></a></div>
-							</div>
-							<div class="dtl-ft">
-								<p class="m-desc"></p>
-							</div>
-							<div class="picwrap">
-								<img src="" alt="">
-								<div class="title">
-									<a class="f-thide" title></a>
-									<a class="provider" href=""></a> 
-									<div class="desc"><span class="learner"></span><span class="price"></span></div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="m-course f-fl f-pr">
-						<div class="course-dtl f-pa">
-							<div class="dtl-mn f-cb">
-								<div class="dtl-picwrap f-fl"><img src="" alt=""></div>
-							</div>
-							<div class="dtl-ct f-fl">
-								<div class="dtl-title"><a class="f-thide" title></a></div>
-								<div class="learner"></div>
-								<div class="dtl-org"><span></span><a href=""></a></div>
-								<div class="dtl-category"><span></span><a href=""></a></div>
-							</div>
-							<div class="dtl-ft">
-								<p class="m-desc"></p>
-							</div>
-							<div class="picwrap">
-								<img src="" alt="">
-								<div class="title">
-									<a class="f-thide" title></a>
-									<a class="provider" href=""></a> 
-									<div class="desc"><span class="learner"></span><span class="price"></span></div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="m-course f-fl f-pr">
-						<div class="course-dtl f-pa">
-							<div class="dtl-mn f-cb">
-								<div class="dtl-picwrap f-fl"><img src="" alt=""></div>
-							</div>
-							<div class="dtl-ct f-fl">
-								<div class="dtl-title"><a class="f-thide" title></a></div>
-								<div class="learner"></div>
-								<div class="dtl-org"><span></span><a href=""></a></div>
-								<div class="dtl-category"><span></span><a href=""></a></div>
-							</div>
-							<div class="dtl-ft">
-								<p class="m-desc"></p>
-							</div>
-							<div class="picwrap">
-								<img src="" alt="">
-								<div class="title">
-									<a class="f-thide" title></a>
-									<a class="provider" href=""></a> 
-									<div class="desc"><span class="learner"></span><span class="price"></span></div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="m-course f-fl f-pr">
-						<div class="course-dtl f-pa">
-							<div class="dtl-mn f-cb">
-								<div class="dtl-picwrap f-fl"><img src="" alt=""></div>
-							</div>
-							<div class="dtl-ct f-fl">
-								<div class="dtl-title"><a class="f-thide" title></a></div>
-								<div class="learner"></div>
-								<div class="dtl-org"><span></span><a href=""></a></div>
-								<div class="dtl-category"><span></span><a href=""></a></div>
-							</div>
-							<div class="dtl-ft">
-								<p class="m-desc"></p>
-							</div>
-							<div class="picwrap">
-								<img src="" alt="">
-								<div class="title">
-									<a class="f-thide" title></a>
-									<a class="provider" href=""></a> 
-									<div class="desc"><span class="learner"></span><span class="price"></span></div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div id="pager" class="m-pager f-cb f-fr">
-						<a href class="prev-page f-fl" data-index="prv"></a>
-						<a href class="pagei f-fl" data-index="1"></a>
-						<a href class="pagei f-fl" data-index="2"></a>
-						<a href class="pagei f-fl" data-index="3"></a>
-						<a href class="pagei f-fl" data-index="4"></a>
-						<a href class="pagei f-fl" data-index="4"></a>
-						<a href class="pagei f-fl" data-index="4"></a>
-						<a href class="pagei f-fl" data-index="4"></a>
-						<a href class="pagei f-fl" data-index="4"></a>
-						<a href class="next-page f-fl" data-index="4"></a>
-					</div>
-				</div>
-				<!-- 热门课程排行 -->
-				<div class="g-side f-fl">
-					<!-- 机构介绍 -->
-					<div class="m-org">
-						<div class="org-title">
-							<h3>机构介绍</h3>
-						</div>
-						<div class="org-video">
-							<h5>观看以下视频了解下吧</h5>
-							<div class="videolink" onclick="playvideo()">
-								<img class="video-icon" src="" alt="">
-							</div>
-						</div>
-					</div>
-					<!-- 排行榜 -->
-					<div class="m-toprank">
-						<div class="rank-title">
-							<h3>最热排行</h3>
-						</div>
-						<div class="rank-list">
-							<ul>
-								<li class="rank-item">
-									<img src="" alt="">
-									<div class="item-detail"><a href="" class="detail-title f-thide"></a><span class="detail-hot"></span></div>
-								</li>
-								<li class="rank-item">
-									<img src="" alt="">
-									<div class="item-detail"><a href="" class="detail-title f-thide"></a><span class="detail-hot"></span></div>
-								</li>
-								<li class="rank-item">
-									<img src="" alt="">
-									<div class="item-detail"><a href="" class="detail-title f-thide"></a><span class="detail-hot"></span></div>
-								</li>
-								<li class="rank-item">
-									<img src="" alt="">
-									<div class="item-detail"><a href="" class="detail-title f-thide"></a><span class="detail-hot"></span></div>
-								</li>
-								<li class="rank-item">
-									<img src="" alt="">
-									<div class="item-detail"><a href="" class="detail-title f-thide"></a><span class="detail-hot"></span></div>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<footer class="g-ft">
-		<div class="m-ftwrapper f-pr f-cb">
-			<div class="ft-left f-fl">
-				<div class="title f-cb">
-					<h3 class="u-title-en f-fl">EDU</h3>
-					<span class="f-fl"></span>
-					<h3 class="u-title-cn f-fl">网易产品部</h3>
-				</div>
-				<div class="cprt">
-					©2014 icourse163.org 浙ICP备08114786号-1
-					<br>
-					icourses.cn 京ICP备12020869号-2 京公网安备110102000459-2
-				</div>
-			</div>
-			<div class="ft-right f-fr f-cb">
-				<div class="link f-fl">
-					<h6>友情链接:</h6>
-					<a href="http://open.163.com" target="_blank">网易公开课</a>
-					<br>
-					<a href="http://study.163.com" target="_blank">云课堂</a>
-					<br>
-					<a href="http://www.icourse163.org" target="_blank">中国大学MOOC</a>
-				</div>
-				<div class="about f-fl">
-					<h6>我们:</h6>
-					<a href="http://study.163.com/about/aboutus.htm#/about?aboutType=1" target="_blank">关于</a>
-					<br>
-					<a href="http://study.163.com/about/aboutus.htm#/about?aboutType=2" target="_blank">联系</a>
-					<br>
-					<a href="http://weibo.com/study163?sudaref=study.163.com" target="_blank">关注微博</a>
-				</div>
-				<div class="more f-fl">
-					<h6>更多:</h6>
-					<a href="http://study.163.com/about/aboutus.htm#/about?aboutType=4" target="_blank">常见问题</a>
-					<a href="http://study.163.com/about/aboutus.htm#/about?aboutType=8" target="_blank">意见反馈</a>
-				</div>
-			</div>
-		</div>
-	</footer>
+				<span class="userAttr-fans f-fl">粉丝数 46</span>
+                </div>
+                <div class="nav-course f-fr">
+                    <a href="http://open.163.com" target="_blank">网易公开课</a>
+                    <a href="http://study.163.com" target="_blank">云课堂</a>
+                    <a href="http://www.icourse163.org" target="_blank">中国大学MOOC</a>
+                    <a href class="search"></a>
+                </div>
+        </nav>
+    </header>
+    <div class="g-bd">
+        <!-- 轮播 -->
+        <div class="m-sld f-cb f-pr">
+            <div class="m-sld-wrapper">
+                <ul class="u-sld-list" id="img-list">
+                    <a href="http://www.icourse163.org" target="_blank">
+                        <li class="banner banner2" data-index="2"></li>
+                    </a>
+                    <a href="http://open.163.com" target="_blank">
+                        <li class="banner banner0" data-index="0"></li>
+                    </a>
+                    <a href="http://study.163.com" target="_blank">
+                        <li class="banner banner1" data-index="1"></li>
+                    </a>
+                    <a href="http://www.icourse163.org" target="_blank">
+                        <li class="banner banner2" data-index="2"></li>
+                    </a>
+                    <a href="http://open.163.com" target="_blank">
+                        <li class="banner banner0" data-index="0"></li>
+                    </a>
+                </ul>
+                <div class="u-control">
+                    <div class="circle-wrap f-pa">
+                        <span id="circleOn" class="circle" data-index="0"></span>
+                        <span class="circle" data-index="1"></span>
+                        <span class="circle circleOn" data-index="2"></span>
+                    </div>
+                </div>
+                <span href="" id="prev-arrow" class="u-arrow"><</span>
+                <span href="" id="next-arrow" class="u-arrow">></span>
+            </div>
+        </div>
+        <!-- 三个产品介绍 -->
+        <div class="m-course-intro f-pr-intro">
+            <ul class="section f-cb f-pr">
+                <li class="intro-blk blk0">
+                    <h2>网易公开课</h2>
+                    <p>推出国内外名校公开课，涉及广泛的学科，名校老师认真讲解深度剖析，网易视频公开课频道搭建起强有力的网络视频教学平台。</p>
+                    <a href="http://open.163.com" target="_blank" x>了解更多 >></a>
+                </li>
+                <li class="intro-blk f-cb f-pr">
+                    <h2>云课堂</h2>
+                    <p>网易旗下大型在线学习平台，该平台面向学习者提供海量免费、优质课程,创新的个性化学习体验，自由开放的交流互动环境。</p>
+                    <a href="http://study.163.com" target="_blank">了解更多 >></a>
+                </li>
+                <li class="intro-blk f-cb f-pr">
+                    <h2>中国大学MOOC</h2>
+                    <p>是爱课程网携手云课堂打造的在线学习平台，每一个有提升愿望的人,都可以在这里学习中国最好的大学课程，学完还能获得认证证书。</p>
+                    <a href="http://www.icourse163.org" target="_blank">了解更多 >></a>
+                </li>
+            </ul>
+        </div>
+        <!-- 工作环境 -->
+        <div class="m-adimg f-cb">
+            <img src="assets/images/adimg_01.png" alt="adimg01">
+            <img src="assets/images/adimg_02.png" alt="adimg02">
+            <img src="assets/images/adimg_03.png" alt="adimg03">
+            <img src="assets/images/adimg_04.png" alt="adimg04">
+            <img src="assets/images/adimg_05.png" alt="adimg05">
+        </div>
+        <!-- 课程 -->
+        <div class="g-wrap f-cb">
+            <!-- 课程主展示区 -->
+            <div class="m-list f-cb">
+                <div class="g-main f-fl f-prlist f-fl">
+                    <!-- 课程类别选择按钮 -->
+                    <div class="m-tab f-cb" onclick="SwitchCourseType()">
+                        <a  class="tab-select f-fl">产品设计</a>
+                        <a  class="tab f-fl">编程语言</a>
+                    </div>
+                    <!-- 课程 -->
+                    <div class="m-course f-fl f-pr">
+                        <div class="course-dtl f-pa">
+                            <div class="dtl-mn f-cb">
+                                <div class="dtl-picwrap f-fl"><img src onerror="this.src='assets/images/default.png'"></div>
+                                <div class="dtl-ct f-fl">
+                                    <div class="dtl-title">
+                                        <a class="f-thide" title></a>
+                                    </div>
+                                    <div class="learner"></div>
+                                    <div class="dtl-org">
+                                    	<span>发布者：</span>
+                                        <a href="" class="provider"></a>
+                                    </div>
+                                    <div class="dtl-category">
+                                    	<span>分类：</span>
+                                        <a href=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dtl-ft">
+                                <p class="m-desc"></p>
+                            </div>
+                        </div>
+                        <div class="picwrap">
+                            <img src onerror ="this.src='assets/images/default.png'">
+                        </div>
+                        <div class="title">
+                            <a class="f-thide" title></a>
+                            <a class="provider" href=""></a>
+                        </div>
+                        <div class="desc">
+                            <div class="learner"></div>
+                            <div class="price"></div>
+                        </div>
+                    </div>
+                    <div class="m-course f-fl f-pr">
+                        <div class="course-dtl f-pa">
+                            <div class="dtl-mn f-cb">
+                                <div class="dtl-picwrap f-fl"><img src onerror="this.src='assets/images/default.png'"></div>
+                                <div class="dtl-ct f-fl">
+                                    <div class="dtl-title">
+                                        <a class="f-thide" title></a>
+                                    </div>
+                                    <div class="learner"></div>
+                                    <div class="dtl-org">
+                                    	<span>发布者：</span>
+                                        <a href="" class="provider"></a>
+                                    </div>
+                                    <div class="dtl-category">
+                                    	<span>分类：</span>
+                                        <a href=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dtl-ft">
+                                <p class="m-desc"></p>
+                            </div>
+                        </div>
+                        <div class="picwrap">
+                            <img src onerror ="this.src='assets/images/default.png'">
+                        </div>
+                        <div class="title">
+                            <a class="f-thide" title></a>
+                            <a class="provider" href=""></a>
+                        </div>
+                        <div class="desc">
+                            <div class="learner"></div>
+                            <div class="price"></div>
+                        </div>
+                    </div>
+                    <div class="m-course f-fl f-pr">
+                        <div class="course-dtl f-pa">
+                            <div class="dtl-mn f-cb">
+                                <div class="dtl-picwrap f-fl"><img src onerror="this.src='assets/images/default.png'"></div>
+                                <div class="dtl-ct f-fl">
+                                    <div class="dtl-title">
+                                        <a class="f-thide" title></a>
+                                    </div>
+                                    <div class="learner"></div>
+                                    <div class="dtl-org">
+                                    	<span>发布者：</span>
+                                        <a href="" class="provider"></a>
+                                    </div>
+                                    <div class="dtl-category">
+                                    	<span>分类：</span>
+                                        <a href=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dtl-ft">
+                                <p class="m-desc"></p>
+                            </div>
+                        </div>
+                        <div class="picwrap">
+                            <img src onerror ="this.src='assets/images/default.png'">
+                        </div>
+                        <div class="title">
+                            <a class="f-thide" title></a>
+                            <a class="provider" href=""></a>
+                        </div>
+                        <div class="desc">
+                            <div class="learner"></div>
+                            <div class="price"></div>
+                        </div>
+                    </div>
+                    <div class="m-course f-fl f-pr">
+                        <div class="course-dtl f-pa">
+                            <div class="dtl-mn f-cb">
+                                <div class="dtl-picwrap f-fl"><img src onerror="this.src='assets/images/default.png'"></div>
+                                <div class="dtl-ct f-fl">
+                                    <div class="dtl-title">
+                                        <a class="f-thide" title></a>
+                                    </div>
+                                    <div class="learner"></div>
+                                    <div class="dtl-org">
+                                    	<span>发布者：</span>
+                                        <a href="" class="provider"></a>
+                                    </div>
+                                    <div class="dtl-category">
+                                    	<span>分类：</span>
+                                        <a href=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dtl-ft">
+                                <p class="m-desc"></p>
+                            </div>
+                        </div>
+                        <div class="picwrap">
+                            <img src onerror ="this.src='assets/images/default.png'">
+                        </div>
+                        <div class="title">
+                            <a class="f-thide" title></a>
+                            <a class="provider" href=""></a>
+                        </div>
+                        <div class="desc">
+                            <div class="learner"></div>
+                            <div class="price"></div>
+                        </div>
+                    </div>
+                    <div class="m-course f-fl f-pr">
+                        <div class="course-dtl f-pa">
+                            <div class="dtl-mn f-cb">
+                                <div class="dtl-picwrap f-fl"><img src onerror="this.src='assets/images/default.png'"></div>
+                                <div class="dtl-ct f-fl">
+                                    <div class="dtl-title">
+                                        <a class="f-thide" title></a>
+                                    </div>
+                                    <div class="learner"></div>
+                                    <div class="dtl-org">
+                                    	<span>发布者：</span>
+                                        <a href="" class="provider"></a>
+                                    </div>
+                                    <div class="dtl-category">
+                                    	<span>分类：</span>
+                                        <a href=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dtl-ft">
+                                <p class="m-desc"></p>
+                            </div>
+                        </div>
+                        <div class="picwrap">
+                            <img src onerror ="this.src='assets/images/default.png'">
+                        </div>
+                        <div class="title">
+                            <a class="f-thide" title></a>
+                            <a class="provider" href=""></a>
+                        </div>
+                        <div class="desc">
+                            <div class="learner"></div>
+                            <div class="price"></div>
+                        </div>
+                    </div>
+                    <div class="m-course f-fl f-pr">
+                        <div class="course-dtl f-pa">
+                            <div class="dtl-mn f-cb">
+                                <div class="dtl-picwrap f-fl"><img src onerror="this.src='assets/images/default.png'"></div>
+                                <div class="dtl-ct f-fl">
+                                    <div class="dtl-title">
+                                        <a class="f-thide" title></a>
+                                    </div>
+                                    <div class="learner"></div>
+                                    <div class="dtl-org">
+                                    	<span>发布者：</span>
+                                        <a href="" class="provider"></a>
+                                    </div>
+                                    <div class="dtl-category">
+                                    	<span>分类：</span>
+                                        <a href=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dtl-ft">
+                                <p class="m-desc"></p>
+                            </div>
+                        </div>
+                        <div class="picwrap">
+                            <img src onerror ="this.src='assets/images/default.png'">
+                        </div>
+                        <div class="title">
+                            <a class="f-thide" title></a>
+                            <a class="provider" href=""></a>
+                        </div>
+                        <div class="desc">
+                            <div class="learner"></div>
+                            <div class="price"></div>
+                        </div>
+                    </div>
+                    <div class="m-course f-fl f-pr">
+                        <div class="course-dtl f-pa">
+                            <div class="dtl-mn f-cb">
+                                <div class="dtl-picwrap f-fl"><img src onerror="this.src='assets/images/default.png'"></div>
+                                <div class="dtl-ct f-fl">
+                                    <div class="dtl-title">
+                                        <a class="f-thide" title></a>
+                                    </div>
+                                    <div class="learner"></div>
+                                    <div class="dtl-org">
+                                    	<span>发布者：</span>
+                                        <a href="" class="provider"></a>
+                                    </div>
+                                    <div class="dtl-category">
+                                    	<span>分类：</span>
+                                        <a href=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dtl-ft">
+                                <p class="m-desc"></p>
+                            </div>
+                        </div>
+                        <div class="picwrap">
+                            <img src onerror ="this.src='assets/images/default.png'">
+                        </div>
+                        <div class="title">
+                            <a class="f-thide" title></a>
+                            <a class="provider" href=""></a>
+                        </div>
+                        <div class="desc">
+                            <div class="learner"></div>
+                            <div class="price"></div>
+                        </div>
+                    </div>
+                    <div class="m-course f-fl f-pr">
+                        <div class="course-dtl f-pa">
+                            <div class="dtl-mn f-cb">
+                                <div class="dtl-picwrap f-fl"><img src onerror="this.src='assets/images/default.png'"></div>
+                                <div class="dtl-ct f-fl">
+                                    <div class="dtl-title">
+                                        <a class="f-thide" title></a>
+                                    </div>
+                                    <div class="learner"></div>
+                                    <div class="dtl-org">
+                                    	<span>发布者：</span>
+                                        <a href="" class="provider"></a>
+                                    </div>
+                                    <div class="dtl-category">
+                                    	<span>分类：</span>
+                                        <a href=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dtl-ft">
+                                <p class="m-desc"></p>
+                            </div>
+                        </div>
+                        <div class="picwrap">
+                            <img src onerror ="this.src='assets/images/default.png'">
+                        </div>
+                        <div class="title">
+                            <a class="f-thide" title></a>
+                            <a class="provider" href=""></a>
+                        </div>
+                        <div class="desc">
+                            <div class="learner"></div>
+                            <div class="price"></div>
+                        </div>
+                    </div>
+                    <div class="m-course f-fl f-pr">
+                        <div class="course-dtl f-pa">
+                            <div class="dtl-mn f-cb">
+                                <div class="dtl-picwrap f-fl"><img src onerror="this.src='assets/images/default.png'"></div>
+                                <div class="dtl-ct f-fl">
+                                    <div class="dtl-title">
+                                        <a class="f-thide" title></a>
+                                    </div>
+                                    <div class="learner"></div>
+                                    <div class="dtl-org">
+                                    	<span>发布者：</span>
+                                        <a href="" class="provider"></a>
+                                    </div>
+                                    <div class="dtl-category">
+                                    	<span>分类：</span>
+                                        <a href=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dtl-ft">
+                                <p class="m-desc"></p>
+                            </div>
+                        </div>
+                        <div class="picwrap">
+                            <img src onerror ="this.src='assets/images/default.png'">
+                        </div>
+                        <div class="title">
+                            <a class="f-thide" title></a>
+                            <a class="provider" href=""></a>
+                        </div>
+                        <div class="desc">
+                            <div class="learner"></div>
+                            <div class="price"></div>
+                        </div>
+                    </div>
+                    <div class="m-course f-fl f-pr">
+                        <div class="course-dtl f-pa">
+                            <div class="dtl-mn f-cb">
+                                <div class="dtl-picwrap f-fl"><img src onerror="this.src='assets/images/default.png'"></div>
+                                <div class="dtl-ct f-fl">
+                                    <div class="dtl-title">
+                                        <a class="f-thide" title></a>
+                                    </div>
+                                    <div class="learner"></div>
+                                    <div class="dtl-org">
+                                    	<span>发布者：</span>
+                                        <a href="" class="provider"></a>
+                                    </div>
+                                    <div class="dtl-category">
+                                    	<span>分类：</span>
+                                        <a href=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dtl-ft">
+                                <p class="m-desc"></p>
+                            </div>
+                        </div>
+                        <div class="picwrap">
+                            <img src onerror ="this.src='assets/images/default.png'">
+                        </div>
+                        <div class="title">
+                            <a class="f-thide" title></a>
+                            <a class="provider" href=""></a>
+                        </div>
+                        <div class="desc">
+                            <div class="learner"></div>
+                            <div class="price"></div>
+                        </div>
+                    </div>
+                    <div class="m-course f-fl f-pr">
+                        <div class="course-dtl f-pa">
+                            <div class="dtl-mn f-cb">
+                                <div class="dtl-picwrap f-fl"><img src onerror="this.src='assets/images/default.png'"></div>
+                                <div class="dtl-ct f-fl">
+                                    <div class="dtl-title">
+                                        <a class="f-thide" title></a>
+                                    </div>
+                                    <div class="learner"></div>
+                                    <div class="dtl-org">
+                                    	<span>发布者：</span>
+                                        <a href="" class="provider"></a>
+                                    </div>
+                                    <div class="dtl-category">
+                                    	<span>分类：</span>
+                                        <a href=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dtl-ft">
+                                <p class="m-desc"></p>
+                            </div>
+                        </div>
+                        <div class="picwrap">
+                            <img src onerror ="this.src='assets/images/default.png'">
+                        </div>
+                        <div class="title">
+                            <a class="f-thide" title></a>
+                            <a class="provider" href=""></a>
+                        </div>
+                        <div class="desc">
+                            <div class="learner"></div>
+                            <div class="price"></div>
+                        </div>
+                    </div>
+                    <div class="m-course f-fl f-pr">
+                        <div class="course-dtl f-pa">
+                            <div class="dtl-mn f-cb">
+                                <div class="dtl-picwrap f-fl"><img src onerror="this.src='assets/images/default.png'"></div>
+                                <div class="dtl-ct f-fl">
+                                    <div class="dtl-title">
+                                        <a class="f-thide" title></a>
+                                    </div>
+                                    <div class="learner"></div>
+                                    <div class="dtl-org">
+                                    	<span>发布者：</span>
+                                        <a href="" class="provider"></a>
+                                    </div>
+                                    <div class="dtl-category">
+                                    	<span>分类：</span>
+                                        <a href=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dtl-ft">
+                                <p class="m-desc"></p>
+                            </div>
+                        </div>
+                        <div class="picwrap">
+                            <img src onerror ="this.src='assets/images/default.png'">
+                        </div>
+                        <div class="title">
+                            <a class="f-thide" title></a>
+                            <a class="provider" href=""></a>
+                        </div>
+                        <div class="desc">
+                            <div class="learner"></div>
+                            <div class="price"></div>
+                        </div>
+                    </div>
+                    <div class="m-course f-fl f-pr">
+                        <div class="course-dtl f-pa">
+                            <div class="dtl-mn f-cb">
+                                <div class="dtl-picwrap f-fl"><img src onerror="this.src='assets/images/default.png'"></div>
+                                <div class="dtl-ct f-fl">
+                                    <div class="dtl-title">
+                                        <a class="f-thide" title></a>
+                                    </div>
+                                    <div class="learner"></div>
+                                    <div class="dtl-org">
+                                    	<span>发布者：</span>
+                                        <a href="" class="provider"></a>
+                                    </div>
+                                    <div class="dtl-category">
+                                    	<span>分类：</span>
+                                        <a href=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dtl-ft">
+                                <p class="m-desc"></p>
+                            </div>
+                        </div>
+                        <div class="picwrap">
+                            <img src onerror ="this.src='assets/images/default.png'">
+                        </div>
+                        <div class="title">
+                            <a class="f-thide" title></a>
+                            <a class="provider" href=""></a>
+                        </div>
+                        <div class="desc">
+                            <div class="learner"></div>
+                            <div class="price"></div>
+                        </div>
+                    </div>
+                    <div class="m-course f-fl f-pr">
+                        <div class="course-dtl f-pa">
+                            <div class="dtl-mn f-cb">
+                                <div class="dtl-picwrap f-fl"><img src onerror="this.src='assets/images/default.png'"></div>
+                                <div class="dtl-ct f-fl">
+                                    <div class="dtl-title">
+                                        <a class="f-thide" title></a>
+                                    </div>
+                                    <div class="learner"></div>
+                                    <div class="dtl-org">
+                                    	<span>发布者：</span>
+                                        <a href="" class="provider"></a>
+                                    </div>
+                                    <div class="dtl-category">
+                                    	<span>分类：</span>
+                                        <a href=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dtl-ft">
+                                <p class="m-desc"></p>
+                            </div>
+                        </div>
+                        <div class="picwrap">
+                            <img src onerror ="this.src='assets/images/default.png'">
+                        </div>
+                        <div class="title">
+                            <a class="f-thide" title></a>
+                            <a class="provider" href=""></a>
+                        </div>
+                        <div class="desc">
+                            <div class="learner"></div>
+                            <div class="price"></div>
+                        </div>
+                    </div>
+                    <div class="m-course f-fl f-pr">
+                        <div class="course-dtl f-pa">
+                            <div class="dtl-mn f-cb">
+                                <div class="dtl-picwrap f-fl"><img src onerror="this.src='assets/images/default.png'"></div>
+                                <div class="dtl-ct f-fl">
+                                    <div class="dtl-title">
+                                        <a class="f-thide" title></a>
+                                    </div>
+                                    <div class="learner"></div>
+                                    <div class="dtl-org">
+                                    	<span>发布者：</span>
+                                        <a href="" class="provider"></a>
+                                    </div>
+                                    <div class="dtl-category">
+                                    	<span>分类：</span>
+                                        <a href=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dtl-ft">
+                                <p class="m-desc"></p>
+                            </div>
+                        </div>
+                        <div class="picwrap">
+                            <img src onerror ="this.src='assets/images/default.png'">
+                        </div>
+                        <div class="title">
+                            <a class="f-thide" title></a>
+                            <a class="provider" href=""></a>
+                        </div>
+                        <div class="desc">
+                            <div class="learner"></div>
+                            <div class="price"></div>
+                        </div>
+                    </div>
+                    <div class="m-course f-fl f-pr">
+                        <div class="course-dtl f-pa">
+                            <div class="dtl-mn f-cb">
+                                <div class="dtl-picwrap f-fl"><img src onerror="this.src='assets/images/default.png'"></div>
+                                <div class="dtl-ct f-fl">
+                                    <div class="dtl-title">
+                                        <a class="f-thide" title></a>
+                                    </div>
+                                    <div class="learner"></div>
+                                    <div class="dtl-org">
+                                    	<span>发布者：</span>
+                                        <a href="" class="provider"></a>
+                                    </div>
+                                    <div class="dtl-category">
+                                    	<span>分类：</span>
+                                        <a href=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dtl-ft">
+                                <p class="m-desc"></p>
+                            </div>
+                        </div>
+                        <div class="picwrap">
+                            <img src onerror ="this.src='assets/images/default.png'">
+                        </div>
+                        <div class="title">
+                            <a class="f-thide" title></a>
+                            <a class="provider" href=""></a>
+                        </div>
+                        <div class="desc">
+                            <div class="learner"></div>
+                            <div class="price"></div>
+                        </div>
+                    </div>
+                    <div id="pager" class="m-pager f-cb f-fr">
+                        <a class="prev-page f-fl" data-index="prev"></a>
+                        <a class="page pagei f-fl" data-index="1">1</a>
+                        <a class="page pagei f-fl" data-index="2">2</a>
+                        <a class="page pagei f-fl" data-index="3">3</a>
+                        <a class="page pagei f-fl" data-index="4">4</a>
+                        <a class="page pagei f-fl" data-index="5">5</a>
+                        <a class="page pagei f-fl" data-index="6">6</a>
+                        <a class="page pagei f-fl" data-index="7">7</a>
+                        <a class="page pagei f-fl" data-index="8">8</a>
+                        <a class="next-page f-fl" data-index="next"></a>
+                    </div>
+                </div>
+                <!-- 热门课程排行 -->
+                <div class="g-side f-fl">
+                    <!-- 机构介绍 -->
+                    <div class="m-org">
+                        <div class="org-title">
+                            <h3>机构介绍</h3>
+                        </div>
+                        <div class="org-video">
+                            <h5>观看以下视频了解下吧</h5>
+                            <div class="videolink f-pr" onclick="showPlayer()">
+                                <img class="video-icon f-pa" src="assets/images/videolink.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 排行榜 -->
+                    <div class="m-toprank">
+                        <div class="rank-title">
+                            <h3>最热排行</h3>
+                        </div>
+                        <div class="rank-list">
+                            <ul>
+                                <li class="rank-item">
+                                    <img src="" alt="">
+                                    <div class="item-detail">
+                                        <a href="" class="detail-title f-thide"></a><span class="detail-hot"></span></div>
+                                </li>
+                                <li class="rank-item">
+                                    <img src="" alt="">
+                                    <div class="item-detail">
+                                        <a href="" class="detail-title f-thide"></a><span class="detail-hot"></span></div>
+                                </li>
+                                <li class="rank-item">
+                                    <img src="" alt="">
+                                    <div class="item-detail">
+                                        <a href="" class="detail-title f-thide"></a><span class="detail-hot"></span></div>
+                                </li>
+                                <li class="rank-item">
+                                    <img src="" alt="">
+                                    <div class="item-detail">
+                                        <a href="" class="detail-title f-thide"></a><span class="detail-hot"></span></div>
+                                </li>
+                                <li class="rank-item">
+                                    <img src="" alt="">
+                                    <div class="item-detail">
+                                        <a href="" class="detail-title f-thide"></a><span class="detail-hot"></span></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <footer class="g-ft">
+        <div class="m-ftwrapper f-pr f-cb">
+            <div class="ft-left f-fl">
+                <div class="title f-cb">
+                    <h3 class="u-title-en f-fl">EDU</h3>
+                    <span class="f-fl"></span>
+                    <h3 class="u-title-cn f-fl">网易产品部</h3>
+                </div>
+                <div class="cprt">
+                    ©2014 icourse163.org 浙ICP备08114786号-1
+                    <br> icourses.cn 京ICP备12020869号-2 京公网安备110102000459-2
+                </div>
+            </div>
+            <div class="ft-right f-fr f-cb">
+                <div class="link f-fl">
+                    <h6>友情链接:</h6>
+                    <a href="http://open.163.com" target="_blank">网易公开课</a>
+                    <br>
+                    <a href="http://study.163.com" target="_blank">云课堂</a>
+                    <br>
+                    <a href="http://www.icourse163.org" target="_blank">中国大学MOOC</a>
+                </div>
+                <div class="about f-fl">
+                    <h6>我们:</h6>
+                    <a href="http://study.163.com/about/aboutus.htm#/about?aboutType=1" target="_blank">关于</a>
+                    <br>
+                    <a href="http://study.163.com/about/aboutus.htm#/about?aboutType=2" target="_blank">联系</a>
+                    <br>
+                    <a href="http://weibo.com/study163?sudaref=study.163.com" target="_blank">关注微博</a>
+                </div>
+                <div class="more f-fl">
+                    <h6>更多:</h6>
+                    <a href="http://study.163.com/about/aboutus.htm#/about?aboutType=4" target="_blank">常见问题</a>
+                    <a href="http://study.163.com/about/aboutus.htm#/about?aboutType=8" target="_blank">意见反馈</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="scripts/md5.js"></script>
+    <script type="text/javascript" src="scripts/main.js"></script>
 </body>
+
 </html>
