@@ -6,7 +6,7 @@
 /*   By: caidong <caidong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/28 23:59:27 by caidong           #+#    #+#             */
-/*   Updated: 2016/02/20 00:06:52 by caidong          ###   ########.fr       */
+/*   Updated: 2016/02/20 00:21:30 by caidong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,10 @@ function closeTop() {
     setCookie("closetop", "closetop");
 }
 
-function attrCancel() {
+function cancelFollow() {
     document.getElementsByClassName("userAttr-after")[0].style.display = "none";
     document.getElementsByClassName("userAttr")[0].style.display = "block";
+    removeCookie("followSuc");
 }
 
 function isFollow() {
